@@ -15,5 +15,5 @@ public interface CourseBO extends SuperBO {
     CourseDTO findById(String id) throws Exception;
     List<CourseDTO> findAll() throws Exception;
 
-    
+
 }
