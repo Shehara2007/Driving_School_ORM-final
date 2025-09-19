@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: #aac3f7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driving_school_orm.controller.LessonPageController">
+
+    <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15" style="-fx-background-color: #aac3f7;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
+
+        <!-- Header -->
+        <Label alignment="CENTER" prefHeight="62.0" prefWidth="919.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #eff4fe;                       -fx-background-color: #333c7c; -fx-background-radius: 15;" text="___Lesson Management___">
+            <font>
+                <Font name="Lucida Sans Unicode" size="12.0" />
+            </font>
+        </Label>
+
+        <Separator prefHeight="22.0" prefWidth="919.0" style="-fx-background-color: #333c7c;" />
+
+        <!-- Form Area -->
+        <HBox alignment="CENTER_RIGHT" prefHeight="291.0" prefWidth="893.0" spacing="20">
+         <ImageView fitHeight="239.0" fitWidth="298.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/Screenshot 2025-09-10 111058.png" />
+            </image>
+         </ImageView>
+            <GridPane alignment="CENTER_RIGHT" hgap="15" prefHeight="268.0" prefWidth="800.0" style="-fx-padding: 10;" vgap="15">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30" />
+                    <ColumnConstraints percentWidth="70" />
+                </columnConstraints>
+
+                <!-- Lesson Id -->
+                <Label text="Lesson ID :" GridPane.rowIndex="3">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Label>
+                <TextField fx:id="txtLessonId" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <!-- Date -->
+                <Label text="Date :">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Label>
+                <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="410.0" GridPane.columnIndex="1" />
+
+                <!-- Time -->
+                <Label text="Time :" GridPane.rowIndex="2">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Label>
+                <TextField fx:id="txtTime" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <!-- Student ID -->
+                <Label text="Student ID :" GridPane.rowIndex="4">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Label>
+                <TextField fx:id="txtStudentId" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <!-- Course ID -->
+                <Label text="Course ID :" GridPane.rowIndex="5">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Label>
+                <TextField fx:id="txtCourseId" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <!-- Instructor ID -->
+                <Label text="Instructor ID :" GridPane.rowIndex="6">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Label>
+                <TextField fx:id="txtInstructorId" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                <!-- Status -->
+                <Label text="Status :" GridPane.rowIndex="1">
+                    <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+                </Label>
+                <ComboBox fx:id="cmbStatus" prefHeight="26.0" prefWidth="398.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+        </HBox>
+
+        <!-- Action Buttons -->
+        <HBox alignment="CENTER" prefHeight="61.0" prefWidth="919.0" spacing="15">
+            <Button fx:id="btnSave" onAction="#manageSavePayment" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Save">
+            <graphic>
+               <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="https://img.icons8.com/?size=100&amp;id=O5q3KoA7NnF9&amp;format=png&amp;color=FFFFFF" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="btnClear" onAction="#manageClear" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Clear">
+            <graphic>
+               <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="https://img.icons8.com/?size=100&amp;id=MVQ6DwlJgTPl&amp;format=png&amp;color=FFFFFF" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="btnUpdate" onAction="#manageUpdatePayment" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Update">
+            <graphic>
+               <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="https://img.icons8.com/?size=100&amp;id=11680&amp;format=png&amp;color=FFFFFF" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+            <Button fx:id="btnDelete" onAction="#manageDeletePayment" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Delete">
+            <graphic>
+               <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="https://img.icons8.com/?size=100&amp;id=G01ACMKXfdpJ&amp;format=png&amp;color=FFFFFF" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+        </HBox>
+
+        <!-- Payment Table -->
+        <TableView fx:id="tblPayments" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colLessonId" prefWidth="100" text="Lesson ID" />
+                <TableColumn fx:id="colDate" prefWidth="100" text="Date" />
+                <TableColumn fx:id="colTime" prefWidth="100" text="Time" />
+                <TableColumn fx:id="colStatus" prefWidth="120" text="Status" />
+                <TableColumn fx:id="colStudentId" prefWidth="120" text="Student ID" />
+                <TableColumn fx:id="colCourseId" prefWidth="120" text="Course ID" />
+                <TableColumn fx:id="colInstructorId" prefWidth="120" text="Instructor ID" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+
+    </VBox>
+</AnchorPane>
