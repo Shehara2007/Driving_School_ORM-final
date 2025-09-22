@@ -15,4 +15,7 @@ public interface UserBO extends SuperBO {
     List<UserDTO> findAll() throws Exception;
 
     ArrayList<UserDTO> getAllUser() throws Exception;
+
+    UserDTO findByUserName(String userName) throws Exception;
+
 }

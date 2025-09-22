@@ -24,9 +24,9 @@
     <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #aac3f7;" styleClass="main-vbox" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
       <HBox alignment="CENTER" prefHeight="45.0" prefWidth="950.0">
          <children>
-            <ImageView fitHeight="53.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="53.0" fitWidth="63.0" onMouseClicked="#handleBackButton" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="https://img.icons8.com/?size=100&amp;id=113995&amp;format=png&amp;color=000000" />
+                  <Image url="@Icons/icons8-go-back.gif" />
                </image>
             </ImageView>
       
@@ -39,7 +39,7 @@
          </children>
       </HBox>
 
-        <Separator prefHeight="54.0" prefWidth="1006.0" style="-fx-background-color: #333c7c;" styleClass="separator" />
+        <Separator prefHeight="0.0" prefWidth="1006.0" style="-fx-background-color: #333c7c;" styleClass="separator" />
 
         <!-- Form Section -->
         <HBox alignment="CENTER" spacing="20" styleClass="form-hbox" VBox.vgrow="NEVER">
@@ -122,7 +122,7 @@
                 <graphic>
                     <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../../../../../../Downloads/icons8-save-48.png" />
+                            <Image url="@Icons/icons8-save-48.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -135,7 +135,7 @@
                 <graphic>
                     <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../../../../../../Downloads/icons8-clear-48.png" />
+                            <Image url="@Icons/icons8-clear-48.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -148,7 +148,7 @@
                 <graphic>
                     <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../../../../../../Downloads/icons8-update-50.png" />
+                            <Image url="@Icons/icons8-update-50.png" />
                         </image>
                     </ImageView>
                 </graphic>
@@ -161,7 +161,7 @@
                 <graphic>
                     <ImageView fitHeight="22.0" fitWidth="22.0" preserveRatio="true">
                         <image>
-                            <Image url="@../../../../../../../../../Downloads/icons8-delete-128.png" />
+                            <Image url="@Icons/icons8-delete-128.png" />
                         </image>
                     </ImageView>
                 </graphic>

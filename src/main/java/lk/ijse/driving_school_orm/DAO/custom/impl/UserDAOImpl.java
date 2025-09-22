@@ -1,11 +1,14 @@
 package lk.ijse.driving_school_orm.DAO.custom.impl;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import lk.ijse.driving_school_orm.DAO.custom.UserDA0;
 import lk.ijse.driving_school_orm.config.FactoryConfiguration;
 import lk.ijse.driving_school_orm.entity.Student;
 import lk.ijse.driving_school_orm.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -57,5 +60,19 @@ public class UserDAOImpl implements UserDA0 {
         List<User> list = session.createQuery("FROM User ", User.class).list();
         session.close();
         return list;
+    }
+
+    @Override
+    public User findByUserName(String userName) throws Exception {
+        EntityManager em = FactoryConfiguration.getInstance().getSession();
+        try {
+            Query query = (Query) em.createQuery("SELECT u FROM User u WHERE u.userName = :username");
+            query.setParameter("username", userName);
+            return (User) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
     }
 }

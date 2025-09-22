@@ -22,14 +22,14 @@
     <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #aac3f7;" styleClass="main-vbox" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="52.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="60.0" onMouseClicked="#handleBackButton" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image />
+                  <Image url="@Icons/icons8-go-back.gif" />
                </image>
             </ImageView>
       
               <!-- Title -->
-              <Label alignment="CENTER" prefHeight="45.0" prefWidth="951.0" style="-fx-background-color: #333c7c; -fx-background-radius: 15;" styleClass="title-label" text="User Management" textFill="WHITE">
+              <Label alignment="CENTER" prefHeight="46.0" prefWidth="974.0" style="-fx-background-color: #333c7c; -fx-background-radius: 15;" styleClass="title-label" text="User Management" textFill="WHITE">
                   <font>
                       <Font name="System Bold" size="24.0" />
                   </font>
@@ -67,7 +67,7 @@
                 <Label styleClass="form-label" text="User ID :" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtUserId" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="txtUserId" styleClass="text-field" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
                 <Label styleClass="form-label" text="User Name :" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <font><Font name="System Bold" size="14.0" /></font>
@@ -91,7 +91,7 @@
             <Button fx:id="btnSave" onAction="#manageSaveUser" prefWidth="110.0" style="-fx-background-color: #333c7c; -fx-background-radius: 15;" styleClass="action-button" text="Save" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
-                        <image><Image url="@Icons/save.png" /></image>
+                        <image><Image url="@Icons/icons8-save-48.png" /></image>
                     </ImageView>
                 </graphic>
                 <font><Font name="System Bold" size="14.0" /></font>
@@ -100,7 +100,7 @@
             <Button fx:id="btnClear" onAction="#manageClear" prefWidth="110.0" style="-fx-background-color: #333c7c; -fx-background-radius: 15;" styleClass="action-button" text="Clear" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
-                        <image><Image url="@Icons/clear.png" /></image>
+                        <image><Image url="@Icons/icons8-clear-48.png" /></image>
                     </ImageView>
                 </graphic>
                 <font><Font name="System Bold" size="14.0" /></font>
@@ -109,7 +109,7 @@
             <Button fx:id="btnUpdate" onAction="#manageUpdateUser" prefWidth="110.0" style="-fx-background-color: #333c7c; -fx-background-radius: 15;" styleClass="action-button" text="Update" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
-                        <image><Image url="@Icons/update.png" /></image>
+                        <image><Image url="@Icons/icons8-update-50.png" /></image>
                     </ImageView>
                 </graphic>
                 <font><Font name="System Bold" size="14.0" /></font>
@@ -118,7 +118,7 @@
             <Button fx:id="btnDelete" onAction="#manageDeleteUser" prefWidth="110.0" style="-fx-background-color: #333c7c; -fx-background-radius: 15;" styleClass="action-button" text="Delete" textFill="WHITE">
                 <graphic>
                     <ImageView fitHeight="24.0" fitWidth="24.0" preserveRatio="true">
-                        <image><Image url="@Icons/delete.png" /></image>
+                        <image><Image url="@Icons/icons8-delete-128.png" /></image>
                     </ImageView>
                 </graphic>
                 <font><Font name="System Bold" size="14.0" /></font>

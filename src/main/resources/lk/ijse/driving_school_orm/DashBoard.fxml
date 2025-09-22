@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Ank1" prefHeight="796.0" prefWidth="950.0" style="-fx-background-color: #dddee0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driving_school_orm.controller.DashBoardPageController">
+<AnchorPane fx:id="Ank1" prefHeight="825.0" prefWidth="1626.0" style="-fx-background-color: #dddee0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driving_school_orm.controller.DashBoardPageController">
 
     <VBox fx:id="v1" alignment="TOP_CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
 
@@ -36,7 +38,7 @@
         </HBox>
 
         <!-- DASHBOARD CARDS -->
-        <GridPane alignment="CENTER" hgap="25" prefHeight="486.0" prefWidth="828.0" style="-fx-padding: 20;" vgap="25">
+        <GridPane alignment="CENTER" hgap="25" prefHeight="377.0" prefWidth="1620.0" style="-fx-padding: 20;" vgap="25">
             <columnConstraints>
                 <ColumnConstraints percentWidth="33.33" />
                 <ColumnConstraints percentWidth="33.33" />
@@ -102,5 +104,39 @@
                </font></Button>
             </VBox>
         </GridPane>
+      <AnchorPane prefHeight="146.0" prefWidth="1616.0" style="-fx-background-color: #aac3f7;">
+         <children>
+            <ImageView fitHeight="160.0" fitWidth="433.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Screenshot 2025-09-22 204014.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="163.0" fitWidth="255.0" layoutX="433.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Screenshot 2025-09-22 204038.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="159.0" fitWidth="255.0" layoutX="681.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Screenshot 2025-09-22 204038.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="159.0" fitWidth="255.0" layoutX="935.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Screenshot 2025-09-22 204038.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="159.0" fitWidth="254.0" layoutX="1189.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Screenshot 2025-09-22 204038.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="159.0" fitWidth="170.0" layoutX="1443.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Screenshot 2025-09-22 205842.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
     </VBox>
 </AnchorPane>

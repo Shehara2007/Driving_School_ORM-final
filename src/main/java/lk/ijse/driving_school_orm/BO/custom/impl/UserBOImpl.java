@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserBOImpl implements UserBO {
+
     private final UserDA0 userDAO = (UserDA0) DAOFactory.getInstance().getDAO(DAOFactory.DAOtypes.USER);
 
     @Override
@@ -74,5 +75,14 @@ public class UserBOImpl implements UserBO {
             userDTOS.add(new UserDTO(c.getUserID(), c.getUserName(), c.getUserPassword(), c.getUserRole()));
         }
         return userDTOS;
+    }
+
+    @Override
+    public UserDTO findByUserName(String userName) throws Exception {
+        User user = userDAO.findByUserName(userName);
+        if (user != null) {
+            return new UserDTO(user.getUserID(), user.getUserName(), user.getUserPassword(), user.getUserRole());
+        }
+        return null;
     }
 }
