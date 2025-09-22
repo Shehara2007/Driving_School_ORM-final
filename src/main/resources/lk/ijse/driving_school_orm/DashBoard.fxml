@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Ank1" prefHeight="796.0" prefWidth="950.0" style="-fx-background-color: #dddee0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.driving_school_orm.controller.DashBoardPageController">
+
+    <VBox fx:id="v1" alignment="TOP_CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+
+        <!-- HEADER -->
+        <Label fx:id="dSchool" alignment="CENTER" maxWidth="Infinity" prefHeight="70.0" style="-fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 18; -fx-background-color: #333c7c; -fx-background-radius: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 18, 0, 0, 6);" text="__🚘 Driving School Management Dashboard 🚦__">
+            <tooltip><Tooltip text="Smart Centralized Dashboard for Management" /></tooltip>
+        </Label>
+
+        <Separator prefHeight="4.0" prefWidth="870.0" style="-fx-background-color: white;" />
+
+        <!-- SEARCH BAR -->
+        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="910.0" spacing="10" style="-fx-padding: 7; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0, 0, 3);">
+            <TextField fx:id="txtSearch" prefHeight="40.0" prefWidth="716.0" promptText="🔍 Search Students, Courses, Instructors, Payments..." style="-fx-background-radius: 20; -fx-padding: 5; -fx-font-size: 15px; -fx-text-fill: #c5c7cb; -fx-background-color: #ececed;" HBox.hgrow="ALWAYS">
+                <tooltip><Tooltip text="Search across all modules quickly" /></tooltip>
+            </TextField>
+            <Button fx:id="btnSearch" onAction="#handleSearch" style="-fx-background-color: linear-gradient(to right, #4f6dfa, #1c2760);                            -fx-text-fill: white;                            -fx-font-weight: bold;                            -fx-background-radius: 25;                            -fx-padding: 8 22;                            -fx-cursor: hand;">
+                <font><Font size="14.0" /></font>
+                Search
+            </Button>
+        </HBox>
+
+        <!-- DASHBOARD CARDS -->
+        <GridPane alignment="CENTER" hgap="25" prefHeight="486.0" prefWidth="828.0" style="-fx-padding: 20;" vgap="25">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33.33" />
+                <ColumnConstraints percentWidth="33.33" />
+                <ColumnConstraints percentWidth="33.33" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+            </rowConstraints>
+
+            <!-- COMMON STYLE CARDS TEMPLATE -->
+            <VBox fx:id="userId" alignment="CENTER" spacing="12" style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" text="👤 Users" />
+                <Label fx:id="lblTotalUsers" style="-fx-font-size: 30px; -fx-text-fill: black;" text="0" />
+                <Button fx:id="btnManageUsers" onAction="#handleManageUsers" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" text="Manage Users">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            </VBox>
+
+            <VBox fx:id="studentId" alignment="CENTER" spacing="12" style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" text="🎓 Students" />
+                <Label fx:id="lblTotalStudents" style="-fx-font-size: 30px; -fx-text-fill: black;" text="0" />
+                <Button fx:id="btnManageStudents" onAction="#handleManageStudents" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" text="Manage Students">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            </VBox>
+
+            <VBox fx:id="paymentId" alignment="CENTER" spacing="12" style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" text="💳 Payments" />
+                <Label fx:id="lblTotalPayments" style="-fx-font-size: 30px; -fx-text-fill: black;" text="0" />
+                <Button fx:id="btnManagePayments" onAction="#handleManagePayments" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" text="Manage Payments">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            </VBox>
+
+            <VBox fx:id="courseId" alignment="CENTER" spacing="12" style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" text="📚 Courses" />
+                <Label fx:id="lblTotalCourses" style="-fx-font-size: 30px; -fx-text-fill: black;" text="0" />
+                <Button fx:id="btnManageCourses" onAction="#handleManageCourses" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" text="Manage Courses">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            </VBox>
+
+            <VBox fx:id="lessonId" alignment="CENTER" spacing="12" style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" text="📖 Lessons" />
+                <Label fx:id="lblTotalLessons" style="-fx-font-size: 30px; -fx-text-fill: black;" text="0" />
+                <Button fx:id="btnManageLessons" onAction="#handleManageLessons" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" text="Manage Lessons">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            </VBox>
+
+            <VBox fx:id="instructorId" alignment="CENTER" spacing="12" style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom left, #9bc8f5,  #333c7c); -fx-background-radius: 16; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" text="👨‍🏫 Instructors" />
+                <Label fx:id="lblTotalInstructors" style="-fx-font-size: 30px; -fx-text-fill: black;" text="0" />
+                <Button fx:id="btnManageInstructors" onAction="#handleManageInstructors" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #333c7c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-cursor: hand;" text="Manage Instructors">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            </VBox>
+        </GridPane>
+    </VBox>
+</AnchorPane>

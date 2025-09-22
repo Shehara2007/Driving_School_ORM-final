@@ -6,6 +6,8 @@ import lk.ijse.driving_school_orm.DAO.custom.StudentDAO;
 import lk.ijse.driving_school_orm.entity.Student;
 import lk.ijse.driving_school_orm.model.StudentDTO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,5 +72,16 @@ public class StudentBOImpl implements StudentBO {
                         student.getDate_of_birth(),
                         student.getRegistration_date()
                 )).collect(Collectors.toList());
+    }
+
+    @Override
+    public ArrayList<StudentDTO> getAllStudent() throws Exception {
+        ArrayList<Student> students = (ArrayList<Student>) studentDAO.findAll();
+
+        ArrayList<StudentDTO> studentDTOS = new ArrayList<>();
+        for (Student s : students) {
+            studentDTOS.add(new StudentDTO(s.getId(),s.getName(),s.getEmail(),s.getPhone(),s.getAddress(),s.getDate_of_birth(),s.getRegistration_date()));
+        }
+        return studentDTOS;
     }
 }

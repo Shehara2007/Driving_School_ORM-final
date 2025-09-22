@@ -5,6 +5,8 @@ import lk.ijse.driving_school_orm.entity.Course;
 import lk.ijse.driving_school_orm.model.CourseDTO;
 import lk.ijse.driving_school_orm.model.StudentDTO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,4 +18,5 @@ public interface CourseBO extends SuperBO {
     List<CourseDTO> findAll() throws Exception;
 
 
+    ArrayList<CourseDTO> getAllCourse() throws Exception;
 }

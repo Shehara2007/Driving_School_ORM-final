@@ -8,12 +8,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "students")
+@Table(name = "courses")
 
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id", nullable = false)
+    @Column(name = "course_id", nullable = false)
     private Long courseID;
     @Column(nullable = false)
     private String courseName;

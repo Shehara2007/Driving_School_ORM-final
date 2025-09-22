@@ -1,17 +1,17 @@
 package lk.ijse.driving_school_orm.DAO.custom.impl;
 
-import lk.ijse.driving_school_orm.DAO.custom.CourseDAO;
+import lk.ijse.driving_school_orm.DAO.custom.UserDA0;
 import lk.ijse.driving_school_orm.config.FactoryConfiguration;
-import lk.ijse.driving_school_orm.entity.Course;
+import lk.ijse.driving_school_orm.entity.Student;
+import lk.ijse.driving_school_orm.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class CourseDAOImpl implements CourseDAO {
-
+public class UserDAOImpl implements UserDA0 {
     @Override
-    public boolean save(Course entity) throws Exception {
+    public boolean save(User entity) throws Exception {
         try (Session session = FactoryConfiguration.getInstance().getSession()) {
             Transaction tx = session.beginTransaction();
             session.persist(entity);
@@ -24,40 +24,37 @@ public class CourseDAOImpl implements CourseDAO {
     }
 
     @Override
-    public boolean update(Course entity) throws Exception {
+    public boolean update(User entity) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
         session.merge(entity);
         tx.commit();
         session.close();
-        return true;
-    }
+        return true;    }
 
     @Override
     public boolean delete(String c) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction tx = session.beginTransaction();
-        Course course = session.get(Course.class, c);
-        if (course != null) {
-            session.remove(course);
+        User user = session.get(User.class, c);
+        if (user != null) {
+            session.remove(user);
         }
         tx.commit();
         session.close();
-        return course != null;
-    }
+        return user != null;    }
 
     @Override
-    public Course findById(String c) throws Exception {
+    public User findById(String c) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Course course= session.get(Course.class, c);
+        User user= session.get(User.class, c);
         session.close();
-        return course;
-    }
+        return user;    }
 
     @Override
-    public List<Course> findAll() throws Exception {
+    public List<User> findAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        List<Course> list = session.createQuery("FROM Course ", Course.class).list();
+        List<User> list = session.createQuery("FROM User ", User.class).list();
         session.close();
         return list;
     }

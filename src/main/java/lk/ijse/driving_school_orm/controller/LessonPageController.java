@@ -51,7 +51,7 @@ public class LessonPageController {
     private DatePicker datePicker;
 
     @FXML
-    private TableView<?> tblPayments;
+    private TableView<?> tblLessons;
 
     @FXML
     private TextField txtCourseId;
@@ -60,7 +60,7 @@ public class LessonPageController {
     private TextField txtInstructorId;
 
     @FXML
-    private TextField txtLessonId;
+    private TextField txtLessonID;
 
     @FXML
     private TextField txtStudentId;
@@ -69,22 +69,22 @@ public class LessonPageController {
     private TextField txtTime;
 
     @FXML
-    void manageClear(ActionEvent event) {
+    void manageClearLesson(ActionEvent event) {
 
     }
 
     @FXML
-    void manageDeletePayment(ActionEvent event) {
+    void manageDeleteLesson(ActionEvent event) {
 
     }
 
     @FXML
-    void manageSavePayment(ActionEvent event) {
+    void manageSaveLesson(ActionEvent event) {
 
     }
 
     @FXML
-    void manageUpdatePayment(ActionEvent event) {
+    void manageUpdateLesson(ActionEvent event) {
 
     }
 

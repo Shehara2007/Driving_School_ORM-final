@@ -204,5 +204,5 @@ public class StudentPageController implements Initializable {
         colRegDate.setCellValueFactory(new PropertyValueFactory<>("Registration_date"));
 
         loadAllStudents();
-}
+    }
 }

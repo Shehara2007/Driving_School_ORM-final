@@ -3,6 +3,8 @@ package lk.ijse.driving_school_orm.BO.custom;
 import lk.ijse.driving_school_orm.BO.SuperBO;
 import lk.ijse.driving_school_orm.model.StudentDTO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface StudentBO extends SuperBO {
@@ -11,4 +13,6 @@ public interface StudentBO extends SuperBO {
     boolean deleteStudentManage(String id) throws Exception;
     StudentDTO findById(String id) throws Exception;
     List<StudentDTO> findAll() throws Exception;
+
+    ArrayList<StudentDTO> getAllStudent() throws Exception;
 }

@@ -20,7 +20,7 @@
     <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
       <ImageView fitHeight="332.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
          <image>
-            <Image url="@../../../../../../../../../Pictures/Screenshots/Screenshot%202025-09-18%20160207.png" />
+            <Image url="@../../../../../../../../Pictures/Screenshots/Screenshot%202025-09-18%20160207.png" />
          </image>
       </ImageView>
 
@@ -107,7 +107,7 @@
 
         <!-- Login Button -->
         <HBox alignment="CENTER_RIGHT" prefHeight="57.0" prefWidth="910.0" spacing="10">
-            <Button fx:id="btnLogin" prefHeight="40.0" prefWidth="132.0" style="-fx-background-color: #333c7c; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+            <Button fx:id="btnLogin" prefHeight="37.0" prefWidth="165.0" style="-fx-background-color: #333c7c; -fx-background-radius: 20;" text="Login" textFill="WHITE">
                 <font>
                     <Font name="System Bold" size="16.0" />
                 </font>

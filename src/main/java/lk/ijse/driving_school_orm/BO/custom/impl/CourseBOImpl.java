@@ -6,6 +6,8 @@ import lk.ijse.driving_school_orm.DAO.custom.CourseDAO;
 import lk.ijse.driving_school_orm.entity.Course;
 import lk.ijse.driving_school_orm.model.CourseDTO;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,11 +28,14 @@ public class CourseBOImpl implements CourseBO {
     @Override
     public boolean updateCourseManage(CourseDTO dto) throws Exception {
         Course course = new Course(
+                dto.getCourseID(),
                 dto.getCourseName(),
                 dto.getCourseDuration(),
                 dto.getCourseFee()
         );
-        return courseDAO.update(course);    }
+
+        return courseDAO.update(course);
+    }
 
     @Override
     public boolean deleteCourseManage(String id) throws Exception {
@@ -57,5 +62,16 @@ public class CourseBOImpl implements CourseBO {
                         course.getCourseDuration(),
                         course.getCourseFee()
                 )).collect(Collectors.toList());
+    }
+
+    @Override
+    public ArrayList<CourseDTO> getAllCourse() throws Exception {
+        ArrayList<Course> course = (ArrayList<Course>) courseDAO.findAll();
+
+        ArrayList<CourseDTO> courseDTOS = new ArrayList<>();
+        for (Course c : course) {
+            courseDTOS.add(new CourseDTO(c.getCourseID(),c.getCourseName(),c.getCourseDuration(),c.getCourseFee()));
+        }
+        return courseDTOS;
     }
 }

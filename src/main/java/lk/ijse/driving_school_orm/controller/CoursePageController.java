@@ -134,8 +134,6 @@ public class CoursePageController implements Initializable {
             showError("Error saving course: " + e.getMessage());
         }
 
-
-
     }
 
     @FXML
@@ -160,7 +158,7 @@ public class CoursePageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        colCourseId.setCellValueFactory(new PropertyValueFactory<>("courseId"));
+        colCourseId.setCellValueFactory(new PropertyValueFactory<>("courseID"));
         colCourseName.setCellValueFactory(new PropertyValueFactory<>("courseName"));
         colDuration.setCellValueFactory(new PropertyValueFactory<>("courseDuration"));
         colFees.setCellValueFactory(new PropertyValueFactory<>("courseFee"));
