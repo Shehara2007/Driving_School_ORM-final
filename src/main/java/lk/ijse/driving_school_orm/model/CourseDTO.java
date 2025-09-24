@@ -18,5 +18,10 @@ public class CourseDTO {
         this.courseDuration = courseDuration;
         this.courseFee = courseFee;
     }
+
+    public CourseDTO(Long courseID, String courseName) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+    }
 }
 

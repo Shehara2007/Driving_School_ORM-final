@@ -4,4 +4,5 @@ import lk.ijse.driving_school_orm.DAO.CrudDao;
 import lk.ijse.driving_school_orm.entity.Course;
 
 public interface CourseDAO extends CrudDao<Course, String> {
+    public Course findById(long id) throws Exception;
 }

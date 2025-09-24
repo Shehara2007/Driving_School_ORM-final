@@ -17,7 +17,6 @@ public class InstructorBOImpl implements InstructorBO {
     @Override
     public boolean saveInstructorManage(InstructorDTO dto) throws Exception {
         Instructor instructor = new Instructor(
-                dto.getInstructorID(),
                 dto.getInstructorName(),
                 dto.getInstructorPhone(),
                 dto.getInstructorEmail(),

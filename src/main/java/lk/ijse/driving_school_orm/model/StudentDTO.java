@@ -25,4 +25,9 @@ public class StudentDTO {
         this.date_of_birth = date_of_birth;
         this.registration_date = registration_date;
     }
+
+    public StudentDTO(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

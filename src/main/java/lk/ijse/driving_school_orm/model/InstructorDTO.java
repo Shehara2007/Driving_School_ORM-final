@@ -23,4 +23,6 @@ public class InstructorDTO {
         this.instructorEmail = instructorEmail;
         this.instructorAvailability = instructorAvailability;
     }
+
+
 }

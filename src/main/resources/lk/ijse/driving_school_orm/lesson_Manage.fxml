@@ -84,19 +84,16 @@
                 <Label prefHeight="20.0" prefWidth="241.0" styleClass="form-label" text="Student ID :" GridPane.rowIndex="4">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtStudentId" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
                 <!-- Course ID -->
                 <Label prefHeight="20.0" prefWidth="227.0" styleClass="form-label" text="Course ID :" GridPane.rowIndex="5">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtCourseId" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <!-- Instructor ID -->
                 <Label prefHeight="20.0" prefWidth="218.0" styleClass="form-label" text="Instructor ID :" GridPane.rowIndex="6">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtInstructorId" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       
                 <!-- Status -->
                 <Label prefHeight="20.0" prefWidth="205.0" styleClass="form-label" text="Status :" GridPane.rowIndex="1">
@@ -111,8 +108,11 @@
                   <Font name="System Bold" size="14.0" />
                </font>
                 </Label>
-                <ComboBox fx:id="cmbStatus" prefHeight="26.0" prefWidth="469.0" styleClass="combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <ComboBox fx:id="cmbStatus" prefHeight="26.0" prefWidth="462.0" styleClass="combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtLessonID" layoutX="164.0" layoutY="86.0" styleClass="text-field" visible="false" GridPane.columnIndex="1" />
+            <ComboBox fx:id="cmbStudentID" prefHeight="26.0" prefWidth="502.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cmbCourseID" layoutX="164.0" layoutY="173.0" prefHeight="26.0" prefWidth="622.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cmbInstructorID" layoutX="164.0" layoutY="214.0" prefHeight="26.0" prefWidth="725.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </GridPane>
         </HBox>
 
@@ -172,7 +172,7 @@
         </HBox>
 
         <!-- Table -->
-        <TableView fx:id="tblLessons" prefHeight="246.0" prefWidth="1006.0" styleClass="lesson-table" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tblLessons" onMouseClicked="#ClickOnAction" prefHeight="246.0" prefWidth="1006.0" styleClass="lesson-table" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colLessonId" text="Lesson ID" />
                 <TableColumn fx:id="colDate" text="Date" />

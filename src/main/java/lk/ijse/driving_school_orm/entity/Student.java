@@ -3,6 +3,7 @@ package lk.ijse.driving_school_orm.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -37,5 +38,20 @@ public class Student {
         this.date_of_birth = date_of_birth;
         this.registration_date = registration_date;
     }
+
+    public Student(Long id, String name, String email, String phone, String address, Date date_of_birth, Date registration_date) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.date_of_birth = date_of_birth;
+        this.registration_date = registration_date;
+
+    }
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Lesson> lessons = new java.util.ArrayList<>();
+
 }
 

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,4 +35,16 @@ public class Instructor {
         this.instructorEmail = instructorEmail;
         this.instructorAvailability = instructorAvailability;
     }
+
+    public Instructor(long instructorID, String instructorName, String instructorEmail, String instructorPhone, String instructorAvailability) {
+        this.instructorID = instructorID;
+        this.instructorName = instructorName;
+        this.instructorEmail = instructorEmail;
+        this.instructorPhone = instructorPhone;
+        this.instructorAvailability = instructorAvailability;
+    }
+
+    // 🔹 One instructor can have many lessons
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Lesson> lessons = new java.util.ArrayList<>();
 }

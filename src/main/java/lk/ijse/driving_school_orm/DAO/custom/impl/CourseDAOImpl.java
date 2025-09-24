@@ -2,6 +2,7 @@ package lk.ijse.driving_school_orm.DAO.custom.impl;
 
 import lk.ijse.driving_school_orm.DAO.custom.CourseDAO;
 import lk.ijse.driving_school_orm.config.FactoryConfiguration;
+import lk.ijse.driving_school_orm.entity.Instructor;
 import lk.ijse.driving_school_orm.entity.Course;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -60,5 +61,12 @@ public class CourseDAOImpl implements CourseDAO {
         List<Course> list = session.createQuery("FROM Course ", Course.class).list();
         session.close();
         return list;
+    }
+
+    @Override
+    public Course findById(long id) throws Exception {
+        try (Session session = FactoryConfiguration.getInstance().getSession().getSessionFactory().openSession()) {
+            return session.get(Course.class, id);
+        }
     }
 }

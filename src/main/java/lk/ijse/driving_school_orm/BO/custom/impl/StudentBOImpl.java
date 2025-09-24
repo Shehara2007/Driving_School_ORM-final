@@ -6,7 +6,6 @@ import lk.ijse.driving_school_orm.DAO.custom.StudentDAO;
 import lk.ijse.driving_school_orm.entity.Student;
 import lk.ijse.driving_school_orm.model.StudentDTO;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
