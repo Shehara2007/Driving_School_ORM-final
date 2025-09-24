@@ -18,6 +18,7 @@ public class FactoryConfiguration {
         configuration.addAnnotatedClass(Instructor.class);
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Lesson.class);
+        configuration.addAnnotatedClass(Payment.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }

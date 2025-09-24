@@ -138,7 +138,7 @@
         </HBox>
 
         <!-- Table -->
-        <TableView fx:id="tblPayments" styleClass="payment-table" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tblPayments" onMouseClicked="#clickOnAction" styleClass="payment-table" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colPaymentId" text="Payment ID" />
                 <TableColumn fx:id="colDate" text="Date" />

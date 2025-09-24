@@ -18,7 +18,7 @@ public class DAOFactory {
 
     }
     public enum DAOtypes{
-        STUDENT, COURSE, INSTRUCTOR, USER, LESSON
+        STUDENT, COURSE, INSTRUCTOR, USER, LESSON, PAYMENT
     }
     public SuperDao getDAO(DAOtypes dao){
         switch(dao){
@@ -32,6 +32,8 @@ public class DAOFactory {
                 return new UserDAOImpl();
             case LESSON:
                 return new LessonDAOImpl();
+            case PAYMENT:
+                return new PaymentDAOImpl();
             default:
                 return null;
 

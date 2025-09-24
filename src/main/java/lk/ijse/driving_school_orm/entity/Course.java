@@ -40,5 +40,7 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons = new java.util.ArrayList<>();
 
+    @OneToOne(mappedBy = "course", orphanRemoval = true)
+    private Payment payment;
 }
 

@@ -3,6 +3,7 @@ package lk.ijse.driving_school_orm.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,15 +12,19 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import lk.ijse.driving_school_orm.BO.custom.CourseBO;
 import lk.ijse.driving_school_orm.BO.custom.InstructorBO;
+import lk.ijse.driving_school_orm.BO.custom.PaymentBO;
 import lk.ijse.driving_school_orm.BO.custom.StudentBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.CourseDTO;
 import lk.ijse.driving_school_orm.model.InstructorDTO;
+import lk.ijse.driving_school_orm.model.PaymentDTO;
 import lk.ijse.driving_school_orm.model.StudentDTO;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class DashBoardPageController {
+public class DashBoardPageController implements Initializable {
 
     @FXML
     private AnchorPane Ank1;
@@ -93,6 +98,8 @@ public class DashBoardPageController {
     StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.STUDENT);
     InstructorBO instructorBO = (InstructorBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.INSTRUCTOR);
     CourseBO courseBO = (CourseBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.COURSE);
+    PaymentBO paymentBO = (PaymentBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.PAYMENT);
+
     @FXML
     void handleManageCourses(ActionEvent event) {
         nevigateTo("/lk/ijse/driving_school_orm/Course_Manage.fxml");
@@ -162,4 +169,27 @@ public class DashBoardPageController {
         lblTotalCourses.setText(String.valueOf(allCourse.size()));
     }
 
-}
+    public void setPayment () throws Exception {
+        ArrayList<PaymentDTO> allPayment = paymentBO.getAllPayments();
+        lblTotalPayments.setText(String.valueOf(allPayment.size()));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            setStudent();
+            setInstructor();
+            setCourse();
+            setLesson();
+            setPayment();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private void setLesson() throws Exception {
+            ArrayList<CourseDTO> allCourse = courseBO.getAllCourse();
+            lblTotalCourses.setText(String.valueOf(allCourse.size()));
+        }
+    }
