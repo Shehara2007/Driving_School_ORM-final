@@ -6,12 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.UserBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.UserDTO;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginPageController {
 
@@ -19,18 +19,14 @@ public class LoginPageController {
     private Button btnLogin;
 
     @FXML
-    private ComboBox<String> lblChooseRole;
-
-    @FXML
     private TextField txtUserName;
 
     @FXML
     private TextField txtPassword;
 
-    @FXML
-    private TextField txtEmail;  // optional
-
     private final UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.USER);
+
+
 
     @FXML
     public void handleLogin() {
@@ -45,7 +41,7 @@ public class LoginPageController {
         try {
             UserDTO user = userBO.findByUserName(username);
 
-            if (user != null && user.getUserPassword().equals(password)) {
+           if (user != null && BCrypt.checkpw(password, user.getUserPassword())) {   //BCript passwords check karanw
                 new Alert(Alert.AlertType.INFORMATION, "Login Successful!").show();
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/lk/ijse/driving_school_orm/DashBoard.fxml"));
@@ -66,6 +62,7 @@ public class LoginPageController {
             new Alert(Alert.AlertType.ERROR, "Error during login: " + e.getMessage()).show();
         }
     }
+
 
     @FXML
     public void handleForgotPassword() {

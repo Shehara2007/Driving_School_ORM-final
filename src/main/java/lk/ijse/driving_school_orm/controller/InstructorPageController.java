@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 public class InstructorPageController implements Initializable {
     private final InstructorBO instructorBO = (InstructorBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.INSTRUCTOR);
 
-
     @FXML
     private Button btnClear;
 
@@ -39,21 +38,20 @@ public class InstructorPageController implements Initializable {
     @FXML
     private Button btnUpdate;
 
+    @FXML
+    private TableColumn<InstructorTM, Long> colInstructorId;
 
     @FXML
-    private TableColumn<?, ?> colInstructorId;
+    private TableColumn<InstructorTM, String> colInstructorAvailability;
 
     @FXML
-    private TableColumn<?, ?> colInstructorAvailability;
+    private TableColumn<InstructorTM, String> colInstructorName;
 
     @FXML
-    private TableColumn<?, ?> colInstructorName;
+    private TableColumn<InstructorTM, String> colInstructorPhone;
 
     @FXML
-    private TableColumn<?, ?> colInstructorPhone;
-
-    @FXML
-    private TableColumn<?, ?> colInstructorEmail;
+    private TableColumn<InstructorTM, String> colInstructorEmail;
 
     @FXML
     private TableView<InstructorTM> tblInstructor;
@@ -175,6 +173,8 @@ public class InstructorPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        System.out.println( );
         colInstructorId.setCellValueFactory(new PropertyValueFactory<>("instructorID"));
         colInstructorName.setCellValueFactory(new PropertyValueFactory<>("instructorName"));
         colInstructorPhone.setCellValueFactory(new PropertyValueFactory<>("instructorPhone"));

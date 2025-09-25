@@ -106,5 +106,16 @@ public class LessonBOImpl implements LessonBO {
         return idList;
     }
 
+    @Override
+    public ArrayList<LessonDTO> getAllLessons() throws Exception {
+        List<Lesson> lessons =  lessonDAO.findAll();
+
+        ArrayList<LessonDTO> lessonDTOS = new ArrayList<>();
+        for (Lesson s : lessons) {
+            lessonDTOS.add(new LessonDTO(s.getLessonID(),s.getDate(),s.getTime(),s.getStatus(),s.getStudent().getId(),s.getCourse().getCourseID(),s.getInstructor().getInstructorID()));
+        }
+        return lessonDTOS;
+    }
+
 
 }

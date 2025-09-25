@@ -9,6 +9,7 @@ import lk.ijse.driving_school_orm.entity.Student;
 import lk.ijse.driving_school_orm.entity.User;
 import lk.ijse.driving_school_orm.model.StudentDTO;
 import lk.ijse.driving_school_orm.model.UserDTO;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +21,11 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean saveUser(UserDTO dto) throws Exception {
+        String hashedPassword = BCrypt.hashpw(dto.getUserPassword(), BCrypt.gensalt());  //BCript password hash karanw
+
         User user = new User(
                 dto.getUserName(),
-                dto.getUserPassword(),
+                hashedPassword,
                 dto.getUserRole()
         );
         return userDAO.save(user);
@@ -30,14 +33,16 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean updateUser(UserDTO dto) throws Exception {
+        String hashedPassword = BCrypt.hashpw(dto.getUserPassword(), BCrypt.gensalt());   //BCript password hash karanw
+
         User user = new User(
                 dto.getUserID(),
                 dto.getUserName(),
-                dto.getUserPassword(),
+                hashedPassword,
                 dto.getUserRole()
         );
-
-        return userDAO.update(user);        }
+        return userDAO.update(user);
+    }
 
     @Override
     public boolean deleteUser(String id) throws Exception {

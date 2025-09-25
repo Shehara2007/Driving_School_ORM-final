@@ -16,7 +16,9 @@ import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.LessonBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.LessonDTO;
+import lk.ijse.driving_school_orm.view.tdm.InstructorTM;
 import lk.ijse.driving_school_orm.view.tdm.LessonTM;
+import lk.ijse.driving_school_orm.view.tdm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,22 +54,22 @@ public class LessonPageController implements Initializable {
     private ComboBox<String> cmbStudentID;
 
     @FXML
-    private TableColumn<?, ?> colCourseId;
+    private TableColumn<LessonTM, Long> colCourseId;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableColumn<LessonTM, Date> colDate;
 
     @FXML
-    private TableColumn<?, ?> colInstructorId;
+    private TableColumn<InstructorTM, Long> colInstructorId;
 
     @FXML
-    private TableColumn<?, ?> colLessonId;
+    private TableColumn<LessonTM, Long> colLessonId;
 
     @FXML
-    private TableColumn<?, ?> colStatus;
+    private TableColumn<LessonTM, String> colStatus;
 
     @FXML
-    private TableColumn<?, ?> colStudentId;
+    private TableColumn<StudentTM, Long> colStudentId;
 
     @FXML
     private TableColumn<?, ?> colTime;

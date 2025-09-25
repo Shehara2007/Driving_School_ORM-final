@@ -42,16 +42,16 @@ public class CoursePageController implements Initializable {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> colCourseId;
+    private TableColumn<CourseTM, Long> colCourseId;
 
     @FXML
-    private TableColumn<?, ?> colCourseName;
+    private TableColumn<CourseTM, String> colCourseName;
 
     @FXML
-    private TableColumn<?, ?> colDuration;
+    private TableColumn<CourseTM, String> colDuration;
 
     @FXML
-    private TableColumn<?, ?> colFees;
+    private TableColumn<CourseTM, String> colFees;
 
     @FXML
     private HBox imagehbox;

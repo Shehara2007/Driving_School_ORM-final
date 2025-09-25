@@ -41,16 +41,16 @@ public class UserPageController implements Initializable {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> colPassword;
+    private TableColumn<UserTM, String> colPassword;
 
     @FXML
-    private TableColumn<?, ?> colRole;
+    private TableColumn<UserTM, String> colRole;
 
     @FXML
-    private TableColumn<?, ?> colUserId;
+    private TableColumn<UserTM, Long> colUserId;
 
     @FXML
-    private TableColumn<?, ?> colUserName;
+    private TableColumn<UserTM, String> colUserName;
 
     @FXML
     private TextField txtPassword;

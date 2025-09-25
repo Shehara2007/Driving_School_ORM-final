@@ -54,57 +54,36 @@
                 <rowConstraints>
                     <RowConstraints vgrow="SOMETIMES" />
                     <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
                 </rowConstraints>
 
-                <!-- Role Selection -->
-                <Label text="Enter your role :" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
+
 
                 <!-- Username -->
-                <Label text="User Name :" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label text="User Name :" GridPane.columnIndex="0">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtUserName" prefHeight="30.0" prefWidth="400.0" promptText="Enter username" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="txtUserName" prefHeight="30.0" prefWidth="400.0" promptText="Enter username" style="-fx-background-radius: 10;" GridPane.columnIndex="1">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
 
-                <!-- Email -->
-                <Label text="Email :" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="txtEmail" prefWidth="400.0" promptText="example123@gmail.com" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </TextField>
+
 
                 <!-- Password -->
-                <Label text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <Label text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtPassword" prefWidth="400.0" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <TextField fx:id="txtPassword" prefWidth="400.0" promptText="password" style="-fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-            <TextField fx:id="txtRole" layoutX="292.0" layoutY="76.0" prefHeight="30.0" prefWidth="400.0" promptText="Enter your role" style="-fx-background-radius: 10;" GridPane.columnIndex="1">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
+
             </GridPane>
         </HBox>
 

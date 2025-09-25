@@ -8,6 +8,7 @@ module lk.ijse.driving_school_orm {
     requires org.hibernate.orm.core;
     requires java.naming;
     requires java.desktop;
+    requires jbcrypt;
 
     opens lk.ijse.driving_school_orm.controller to javafx.fxml;
     opens lk.ijse.driving_school_orm.view.tdm to javafx.base;

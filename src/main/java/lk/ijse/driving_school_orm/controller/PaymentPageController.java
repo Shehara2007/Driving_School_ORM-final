@@ -46,19 +46,19 @@ public class PaymentPageController implements Initializable {
     private ComboBox<String> cmbStudentId;
 
     @FXML
-    private TableColumn<?, ?> colAmount;
+    private TableColumn<PaymentTM, String> colAmount;
 
     @FXML
-    private TableColumn<?, ?> colCourseId;
+    private TableColumn<PaymentTM, Long> colCourseId;
 
     @FXML
-    private TableColumn<?, ?> colDate;
+    private TableColumn<PaymentTM, Date> colDate;
 
     @FXML
-    private TableColumn<?, ?> colPaymentId;
+    private TableColumn<PaymentTM, Long> colPaymentId;
 
     @FXML
-    private TableColumn<?, ?> colStudentId;
+    private TableColumn<PaymentTM, String> colStudentId;
 
     @FXML
     private DatePicker dpDate;

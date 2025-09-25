@@ -10,15 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import lk.ijse.driving_school_orm.BO.custom.CourseBO;
-import lk.ijse.driving_school_orm.BO.custom.InstructorBO;
-import lk.ijse.driving_school_orm.BO.custom.PaymentBO;
-import lk.ijse.driving_school_orm.BO.custom.StudentBO;
+import lk.ijse.driving_school_orm.BO.custom.*;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
-import lk.ijse.driving_school_orm.model.CourseDTO;
-import lk.ijse.driving_school_orm.model.InstructorDTO;
-import lk.ijse.driving_school_orm.model.PaymentDTO;
-import lk.ijse.driving_school_orm.model.StudentDTO;
+import lk.ijse.driving_school_orm.model.*;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -99,6 +93,8 @@ public class DashBoardPageController implements Initializable {
     InstructorBO instructorBO = (InstructorBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.INSTRUCTOR);
     CourseBO courseBO = (CourseBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.COURSE);
     PaymentBO paymentBO = (PaymentBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.PAYMENT);
+    LessonBO lessonBO = (LessonBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.LESSON);
+    UserBO userBO = (UserBO) BOFactory.getInstance().getBO(BOFactory.BOtypes.USER);
 
     @FXML
     void handleManageCourses(ActionEvent event) {
@@ -135,11 +131,8 @@ public class DashBoardPageController implements Initializable {
 
     }
 
-    public void initialize() throws Exception {
-        setStudent();
-        setInstructor();
-        setCourse();
-    }
+
+
     private void nevigateTo(String s) {
         try {
             Ank1.getChildren().clear();
@@ -149,29 +142,40 @@ public class DashBoardPageController implements Initializable {
             pane.prefHeightProperty().bind(Ank1.heightProperty());
 
             Ank1.getChildren().add(pane);
-        }catch (Exception e){
-            new Alert(Alert.AlertType.ERROR,"Page Not Found!").show();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Page Not Found!").show();
             e.printStackTrace();
 
         }
     }
+    public void setUser() throws Exception {
+            ArrayList<UserDTO> allUser = userBO.getAllUser();
+        lblTotalUsers.setText(String.valueOf(allUser.size()));
+    }
 
-    public void setStudent () throws Exception {
+    public void setStudent() throws Exception {
         ArrayList<StudentDTO> allStudent = studentBO.getAllStudent();
         lblTotalStudents.setText(String.valueOf(allStudent.size()));
     }
-    public void setInstructor () throws Exception {
+
+    public void setInstructor() throws Exception {
         ArrayList<InstructorDTO> allInstructor = instructorBO.getAllInstructor();
         lblTotalInstructors.setText(String.valueOf(allInstructor.size()));
     }
-    public void setCourse () throws Exception {
+
+    public void setCourse() throws Exception {
         ArrayList<CourseDTO> allCourse = courseBO.getAllCourse();
         lblTotalCourses.setText(String.valueOf(allCourse.size()));
     }
 
-    public void setPayment () throws Exception {
+    public void setPayment() throws Exception {
         ArrayList<PaymentDTO> allPayment = paymentBO.getAllPayments();
         lblTotalPayments.setText(String.valueOf(allPayment.size()));
+    }
+
+    public void setLesson() throws Exception {
+        ArrayList<LessonDTO> allLesson = lessonBO.getAllLessons();
+        lblTotalLessons.setText(String.valueOf(allLesson.size()));
     }
 
     @Override
@@ -182,14 +186,11 @@ public class DashBoardPageController implements Initializable {
             setCourse();
             setLesson();
             setPayment();
+            setUser();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-    }
 
-    private void setLesson() throws Exception {
-            ArrayList<CourseDTO> allCourse = courseBO.getAllCourse();
-            lblTotalCourses.setText(String.valueOf(allCourse.size()));
-        }
     }
+}

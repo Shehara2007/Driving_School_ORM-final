@@ -42,22 +42,22 @@ public class StudentPageController implements Initializable {
     private Button btnUpdate;
 
     @FXML
-    private TableColumn<?, ?> colAddress;
+    private TableColumn<StudentTM, String> colAddress;
 
     @FXML
-    private TableColumn<?, ?> colDob;
+    private TableColumn<StudentTM, Date> colDob;
 
     @FXML
-    private TableColumn<?, ?> colEmail;
+    private TableColumn<StudentTM, String> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<StudentTM, String> colName;
 
     @FXML
-    private TableColumn<?, ?> colPhone;
+    private TableColumn<StudentTM, String> colPhone;
 
     @FXML
-    private TableColumn<?, ?> colRegDate;
+    private TableColumn<StudentTM, Date> colRegDate;
 
     @FXML
     private TableColumn<?, ?> colStudentId;
