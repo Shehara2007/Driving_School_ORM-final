@@ -76,21 +76,21 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtCourseName" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtCourseName" onKeyReleased="#CourseNameKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label prefHeight="20.0" prefWidth="157.0" styleClass="form-label" text="Duration :" GridPane.columnIndex="0" GridPane.rowIndex="2">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtDuration" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtDuration" onKeyReleased="#CourseDurationKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <Label prefHeight="20.0" prefWidth="234.0" styleClass="form-label" text="Fees :" GridPane.columnIndex="0" GridPane.rowIndex="3">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtFees" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="txtFees" onKeyReleased="#CourseFeesKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </GridPane>
         </HBox>
 

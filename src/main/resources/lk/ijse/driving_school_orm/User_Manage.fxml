@@ -72,7 +72,7 @@
                 <Label styleClass="form-label" text="User Name :" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtUserName" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtUserName" onKeyReleased="#UserNameKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <Label styleClass="form-label" text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="2">
                     <font><Font name="System Bold" size="14.0" /></font>
@@ -82,7 +82,7 @@
                 <Label styleClass="form-label" text="Role :" GridPane.columnIndex="0" GridPane.rowIndex="3">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtRole" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="txtRole" onKeyReleased="#UserRoleKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </GridPane>
         </HBox>
 

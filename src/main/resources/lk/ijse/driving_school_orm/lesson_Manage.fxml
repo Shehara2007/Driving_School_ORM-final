@@ -67,7 +67,7 @@
                     <RowConstraints vgrow="SOMETIMES" />
                     <RowConstraints vgrow="SOMETIMES" />
                 </rowConstraints>
-                <TextField fx:id="txtTime" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtTime" onKeyReleased="#LessonTimeKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <!-- Lesson ID -->
                 <Label prefHeight="20.0" prefWidth="200.0" styleClass="form-label" text="Lesson ID :">

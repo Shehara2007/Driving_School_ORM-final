@@ -75,13 +75,13 @@
                 <Label prefHeight="20.0" prefWidth="206.0" styleClass="form-label" text="Instructor Name :" GridPane.rowIndex="1">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtInstructorName" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtInstructorName" onKeyReleased="#InstructorNameKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <!-- Lesson ID -->
                 <Label prefHeight="20.0" prefWidth="200.0" styleClass="form-label" text="Phone :" GridPane.rowIndex="2">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtPhone" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtPhone" onKeyReleased="#InstructorPhoneKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <!-- Date -->
                 <Label prefHeight="20.0" prefWidth="242.0" styleClass="form-label" text="Email :" GridPane.rowIndex="3">
@@ -92,9 +92,9 @@
                 <Label prefHeight="20.0" prefWidth="241.0" styleClass="form-label" text="Availability :" GridPane.rowIndex="4">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtAvailability" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="txtAvailability" onKeyReleased="#InstructorAvailaibilityKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="txtInstructorID" layoutX="164.0" layoutY="48.0" styleClass="text-field" visible="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtEmail" layoutX="164.0" layoutY="97.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtEmail" layoutX="164.0" layoutY="97.0" onKeyReleased="#InstructorEmailKeyReleased" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </GridPane>
         </HBox>
 

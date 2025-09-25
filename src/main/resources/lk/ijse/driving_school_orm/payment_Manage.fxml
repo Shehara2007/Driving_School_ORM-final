@@ -76,7 +76,7 @@
                 <Label prefHeight="20.0" prefWidth="251.0" styleClass="form-label" text="Amount :" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-                <TextField fx:id="txtAmount" prefHeight="26.0" prefWidth="470.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="txtAmount" onKeyReleased="#PaymentAmountKeyReleased" prefHeight="26.0" prefWidth="470.0" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
                 <!-- Date -->
                 <Label prefHeight="20.0" prefWidth="250.0" styleClass="form-label" text="Date :" GridPane.columnIndex="0" GridPane.rowIndex="2">

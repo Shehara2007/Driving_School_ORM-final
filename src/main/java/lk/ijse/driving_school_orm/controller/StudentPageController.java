@@ -11,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.StudentBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.StudentDTO;
+import lk.ijse.driving_school_orm.util.Regex;
 import lk.ijse.driving_school_orm.view.tdm.StudentTM;
 
 import java.io.IOException;
@@ -60,7 +62,7 @@ public class StudentPageController implements Initializable {
     private TableColumn<StudentTM, Date> colRegDate;
 
     @FXML
-    private TableColumn<?, ?> colStudentId;
+    private TableColumn<StudentTM, Long> colStudentId;
 
     @FXML
     private DatePicker dpDob;
@@ -120,24 +122,26 @@ public class StudentPageController implements Initializable {
 
     @FXML
     void manageSaveStudent(ActionEvent event) {
-        try {
-            StudentDTO dto = new StudentDTO(
-                    txtName.getText(),
-                    txtEmail.getText(),
-                    txtPhone.getText(),
-                    txtAddress.getText(),
-                    Date.valueOf(dpDob.getValue()),
-                    Date.valueOf(dpRegDate.getValue())
-            );
-            if (studentBO.saveStudentManage(dto)) {
-                showInfo("Student added successfully!");
-                loadAllStudents();
-                clearFields();
+        if (isValid()) {
+            try {
+                StudentDTO dto = new StudentDTO(
+                        txtName.getText(),
+                        txtEmail.getText(),
+                        txtPhone.getText(),
+                        txtAddress.getText(),
+                        Date.valueOf(dpDob.getValue()),
+                        Date.valueOf(dpRegDate.getValue())
+                );
+                if (studentBO.saveStudentManage(dto)) {
+                    showInfo("Student added successfully!");
+                    loadAllStudents();
+                    clearFields();
+                }
+            } catch (Exception e) {
+                showError("Error saving student: " + e.getMessage());
             }
-        } catch (Exception e) {
-            showError("Error saving student: " + e.getMessage());
-        }
 
+        }
     }
 
     @FXML
@@ -221,6 +225,39 @@ public class StudentPageController implements Initializable {
         stage.centerOnScreen();
         stage.setTitle("Dashboard");
         stage.show();
+    }
+
+    @FXML
+    void StudentAddressKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.ADDRESS, txtAddress);
+
+    }
+
+    @FXML
+    void StudentEmailKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.EMAIL, txtEmail);
+
+    }
+
+    @FXML
+    void StudentNameKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtName);
+
+    }
+
+    @FXML
+    void StudentPhoneKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.CONTACT, txtPhone);
+
+    }
+
+
+    private boolean isValid() {
+        return Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtName)&&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.EMAIL, txtEmail)&&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.CONTACT, txtPhone)&&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.ADDRESS, txtAddress);
+
     }
 
 }

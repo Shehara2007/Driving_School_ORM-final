@@ -11,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.PaymentBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.PaymentDTO;
+import lk.ijse.driving_school_orm.util.Regex;
 import lk.ijse.driving_school_orm.view.tdm.PaymentTM;
 
 import java.io.IOException;
@@ -103,27 +105,29 @@ public class PaymentPageController implements Initializable {
 
     @FXML
     void manageSavePayment(ActionEvent event) {
-        try {
-            PaymentDTO dto = new PaymentDTO(
-                    Date.valueOf(dpDate.getValue()),
-                    txtAmount.getText(),
-                    Long.parseLong(cmbStudentId.getSelectionModel().getSelectedItem()),
-                    Long.parseLong(cmbCourseId.getSelectionModel().getSelectedItem())
-            );
-            if (paymentBO.savePayment(dto)) {
-                showInfo("Payment added successfully!");
-                loadAllPayments();
-                clearFields();
+        if (isValid()) {
+            try {
+                PaymentDTO dto = new PaymentDTO(
+                        Date.valueOf(dpDate.getValue()),
+                        txtAmount.getText(),
+                        Long.parseLong(cmbStudentId.getSelectionModel().getSelectedItem()),
+                        Long.parseLong(cmbCourseId.getSelectionModel().getSelectedItem())
+                );
+                if (paymentBO.savePayment(dto)) {
+                    showInfo("Payment added successfully!");
+                    loadAllPayments();
+                    clearFields();
+                }
+            } catch (Exception e) {
+                showError("Error saving payment: " + e.getMessage());
             }
-        } catch (Exception e) {
-            showError("Error saving payment: " + e.getMessage());
+
         }
-
     }
 
-    private void showError(String p) {
-        new Alert(Alert.AlertType.ERROR, p).show();
-    }
+        private void showError (String p){
+            new Alert(Alert.AlertType.ERROR, p).show();
+        }
 
     private void clearFields() {
         txtPaymentId.clear();
@@ -232,5 +236,16 @@ public class PaymentPageController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void PaymentAmountKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.PRICE, txtAmount);
+
+    }
+
+    private boolean isValid() {
+        return Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.PRICE, txtAmount);
+
     }
 }

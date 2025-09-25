@@ -11,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.LessonBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.LessonDTO;
+import lk.ijse.driving_school_orm.util.Regex;
 import lk.ijse.driving_school_orm.view.tdm.InstructorTM;
 import lk.ijse.driving_school_orm.view.tdm.LessonTM;
 import lk.ijse.driving_school_orm.view.tdm.StudentTM;
@@ -88,24 +90,27 @@ public class LessonPageController implements Initializable {
 
     @FXML
     void manageSaveLesson(ActionEvent event) {
-        try {
-            LessonDTO dto = new LessonDTO(
-                    Date.valueOf(datePicker.getValue()),
-                    txtTime.getText(),
-                    cmbStatus.getSelectionModel().getSelectedItem(),
-                    Long.parseLong( cmbStudentID.getSelectionModel().getSelectedItem()),
-                    Long.parseLong( cmbCourseID.getSelectionModel().getSelectedItem()),
-                    Long.parseLong( cmbInstructorID.getSelectionModel().getSelectedItem())
-            );
-            if (lessonBO.saveLesson(dto)) {
-                showInfo("Lesson added successfully!");
-                loadAllLessons();
-                clearFields();
+        if (isValid()) {   // <-- fix here
+            try {
+                LessonDTO dto = new LessonDTO(
+                        Date.valueOf(datePicker.getValue()),
+                        txtTime.getText(),
+                        cmbStatus.getSelectionModel().getSelectedItem(),
+                        Long.parseLong(cmbStudentID.getSelectionModel().getSelectedItem()),
+                        Long.parseLong(cmbCourseID.getSelectionModel().getSelectedItem()),
+                        Long.parseLong(cmbInstructorID.getSelectionModel().getSelectedItem())
+                );
+                if (lessonBO.saveLesson(dto)) {
+                    showInfo("Lesson added successfully!");
+                    loadAllLessons();
+                    clearFields();
+                }
+            } catch (Exception e) {
+                showError("Error saving Lesson: " + e.getMessage());
             }
-        } catch (Exception e) {
-            showError("Error saving Lesson: " + e.getMessage());
         }
     }
+
 
     @FXML
     void manageClearLesson(ActionEvent event) {
@@ -265,5 +270,16 @@ public class LessonPageController implements Initializable {
         loadCourseIds();
         loadInstructorIds();
         loadStudentIds();
+    }
+
+    @FXML
+    void LessonTimeKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.TIME, txtTime);
+
+    }
+
+    private boolean isValid() {
+        return Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.TIME, txtTime);
+
     }
 }

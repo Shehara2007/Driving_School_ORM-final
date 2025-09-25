@@ -1,0 +1,5 @@
+package lk.ijse.driving_school_orm.util;
+
+public enum TextField {
+    ID,NAME,EMAIL,ADDRESS,CONTACT,NIC,SALARY,AGE, PRICE,DURATION,FEES,PASSWORD,AVAILABILITY,TIME,AMOUNT,ROLE
+}

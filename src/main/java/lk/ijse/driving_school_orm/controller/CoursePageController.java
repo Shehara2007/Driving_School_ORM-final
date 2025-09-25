@@ -11,12 +11,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.CourseBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.CourseDTO;
+import lk.ijse.driving_school_orm.util.Regex;
 import lk.ijse.driving_school_orm.view.tdm.CourseTM;
 import lk.ijse.driving_school_orm.view.tdm.StudentTM;
 
@@ -125,19 +127,21 @@ public class CoursePageController implements Initializable {
 
     @FXML
     void manageSaveCourse(ActionEvent event) {
-        try {
-            CourseDTO dto = new CourseDTO(
-                    txtCourseName.getText(),
-                    txtDuration.getText(),
-                    txtFees.getText()
-            );
-            if (courseBO.saveCourseManage(dto)) {
-                showInfo("Course added successfully!");
-                loadAllCourses();
-                clearFields();
+        if (isValid()) {
+            try {
+                CourseDTO dto = new CourseDTO(
+                        txtCourseName.getText(),
+                        txtDuration.getText(),
+                        txtFees.getText()
+                );
+                if (courseBO.saveCourseManage(dto)) {
+                    showInfo("Course added successfully!");
+                    loadAllCourses();
+                    clearFields();
+                }
+            } catch (Exception e) {
+                showError("Error saving course: " + e.getMessage());
             }
-        } catch (Exception e) {
-            showError("Error saving course: " + e.getMessage());
         }
 
     }
@@ -192,4 +196,30 @@ public class CoursePageController implements Initializable {
         stage.setTitle("Dashboard");
         stage.show();
     }
+
+    @FXML
+    void CourseDurationKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.DURATION, txtDuration);
+
+    }
+
+    @FXML
+    void CourseFeesKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.FEES, txtFees);
+
+    }
+
+    @FXML
+    void CourseNameKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtCourseName);
+
+
+    }
+
+    private boolean isValid() {
+        return Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtCourseName) &&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.DURATION, txtDuration) &&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.FEES, txtFees);
+    }
+
 }

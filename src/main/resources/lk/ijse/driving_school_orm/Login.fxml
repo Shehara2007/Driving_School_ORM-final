@@ -64,7 +64,7 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtUserName" prefHeight="30.0" prefWidth="400.0" promptText="Enter username" style="-fx-background-radius: 10;" GridPane.columnIndex="1">
+                <TextField fx:id="txtUserName" onKeyReleased="#UserNameKeyReleased" prefHeight="30.0" prefWidth="400.0" promptText="Enter username" style="-fx-background-radius: 10;" GridPane.columnIndex="1">
                     <font>
                         <Font size="14.0" />
                     </font>

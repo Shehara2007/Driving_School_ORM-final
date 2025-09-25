@@ -11,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.UserBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.UserDTO;
+import lk.ijse.driving_school_orm.util.Regex;
 import lk.ijse.driving_school_orm.view.tdm.UserTM;
 
 import java.io.IOException;
@@ -133,22 +135,24 @@ public class UserPageController implements Initializable {
     }
 
     @FXML
-    void manageSaveUser (ActionEvent event){
-        try {
-            UserDTO dto = new UserDTO(
-                    txtUserName.getText(),
-                    txtPassword.getText(),
-                    txtRole.getText()
-            );
-            if (userBO.saveUser(dto)) {
-                showInfo("User added successfully!");
-                loadAllUsers();
-                clearFields();
+    void manageSaveUser (ActionEvent event) {
+        if (isValid()) {
+            try {
+                UserDTO dto = new UserDTO(
+                        txtUserName.getText(),
+                        txtPassword.getText(),
+                        txtRole.getText()
+                );
+                if (userBO.saveUser(dto)) {
+                    showInfo("User added successfully!");
+                    loadAllUsers();
+                    clearFields();
+                }
+            } catch (Exception e) {
+                showError("Error saving user: " + e.getMessage());
             }
-        } catch (Exception e) {
-            showError("Error saving user: " + e.getMessage());
-        }
 
+        }
     }
 
     @FXML
@@ -193,4 +197,23 @@ public class UserPageController implements Initializable {
         stage.setTitle("Dashboard");
         stage.show();
     }
+
+    @FXML
+    void UserNameKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtUserName);
+
+    }
+
+    @FXML
+    void UserRoleKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.ROLE, txtRole);
+
+    }
+
+    private boolean isValid() {
+        return Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtUserName)&&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.ROLE, txtRole);
+
+    }
+
 }

@@ -11,11 +11,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.driving_school_orm.BO.custom.InstructorBO;
 import lk.ijse.driving_school_orm.BO.custom.impl.BOFactory;
 import lk.ijse.driving_school_orm.model.InstructorDTO;
+import lk.ijse.driving_school_orm.util.Regex;
 import lk.ijse.driving_school_orm.view.tdm.InstructorTM;
 
 import java.io.IOException;
@@ -131,22 +133,24 @@ public class InstructorPageController implements Initializable {
 
     @FXML
     void manageSaveInstructor(ActionEvent event) {
-        try {
-            InstructorDTO dto = new InstructorDTO(
-                    txtInstructorName.getText(),
-                    txtPhone.getText(),
-                    txtEmail.getText(),
-                    txtAvailability.getText()
-            );
-            if (instructorBO.saveInstructorManage(dto)) {
-                showInfo("Instructor added successfully!");
-                loadAllInstructors();
-                clearFields();
+        if (isValid()) {
+            try {
+                InstructorDTO dto = new InstructorDTO(
+                        txtInstructorName.getText(),
+                        txtPhone.getText(),
+                        txtEmail.getText(),
+                        txtAvailability.getText()
+                );
+                if (instructorBO.saveInstructorManage(dto)) {
+                    showInfo("Instructor added successfully!");
+                    loadAllInstructors();
+                    clearFields();
+                }
+            } catch (Exception e) {
+                showError("Error saving instructor: " + e.getMessage());
             }
-        } catch (Exception e) {
-            showError("Error saving instructor: " + e.getMessage());
-        }
 
+        }
     }
 
     @FXML
@@ -204,5 +208,37 @@ public class InstructorPageController implements Initializable {
         stage.centerOnScreen();
         stage.setTitle("Dashboard");
         stage.show();
+    }
+
+    @FXML
+    void InstructorAvailaibilityKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.AVAILABILITY, txtAvailability);
+
+    }
+
+    @FXML
+    void InstructorEmailKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.EMAIL, txtEmail);
+
+    }
+
+    @FXML
+    void InstructorNameKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtInstructorName);
+
+    }
+
+    @FXML
+    void InstructorPhoneKeyReleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.CONTACT, txtPhone);
+
+    }
+
+    private boolean isValid() {
+        return Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.NAME, txtInstructorName) &&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.CONTACT, txtPhone) &&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.EMAIL, txtEmail)&&
+                Regex.setTextColor(lk.ijse.driving_school_orm.util.TextField.AVAILABILITY, txtAvailability);
+
     }
 }
